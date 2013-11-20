@@ -14,5 +14,9 @@
 #include "Num.h"
 #include "Word.h"
 #include "Lexer.h"
+#include "../Symbols/Env.h"
+#include "../Symbols/Type.h"
+#include "../Symbols/Array.h"
+#include "../Inter/Id.h"
 
 using namespace std;

@@ -28,6 +28,10 @@ ObjFiles/Symbols/Env.o : Src/Symbols/Env.cpp Src/Symbols/Env.h
 ObjFiles/Lexer/TopLexer.o : ObjFiles/Lexer/main.o ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o
 	ld ${LDFLAGS} -r ObjFiles/Lexer/main.o ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o -o ObjFiles/Lexer/TopLexer.o
 
+# Link all object files for Symbols
+
+# Link all object files for Inter
+
 # Create individual object files for Lexer components
 ObjFiles/Lexer/main.o : Src/Lexer/main.cpp Src/Lexer/main.h
 	${CC} ${CFLAGS} -c Src/Lexer/main.cpp -o ObjFiles/Lexer/main.o
@@ -49,6 +53,14 @@ ObjFiles/Lexer/Word.o : Src/Lexer/Word.cpp Src/Lexer/Word.h
 
 ObjFiles/Lexer/Lexer.o : Src/Lexer/Lexer.cpp Src/Lexer/Lexer.h
 	${CC} ${CFLAGS} -c Src/Lexer/Lexer.cpp -o ObjFiles/Lexer/Lexer.o
+
+# Create individual object files for Symbols components
+ObjFiles/Symbols/Env.o : Src/Symbols/Env.cpp Src/Symbols/Env.h
+	${CC} ${CFLAGS} -c Src/Symbols/Env.cpp -o ObjFiles/Symbols/Env.o
+
+# Create individual object files for Inter components
+ObjFiles/Inter/Id.o : Src/Inter/Id.cpp Src/Inter/Id.h
+	${CC} ${CFLAGS} -c Src/Inter/Id.cpp -o ObjFiles/Inter/Id.o
 
 # Cleanup all object files and the executable
 clean :

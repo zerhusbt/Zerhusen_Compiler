@@ -13,7 +13,6 @@
 Word::Word(int t, std::string s) : Token(t)
 {
 	lexeme = s;
-	
 }
 
 std::string Word::toString() 

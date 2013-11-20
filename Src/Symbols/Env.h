@@ -13,19 +13,21 @@
 #define ENV_H
 
 #include <map>
+#include "../Lexer/Token.h"
+#include "../Inter/Id.h"
 
 class Env
 {
 	public:
 		void put(Token w,Id i);
-		Id get(Token w);
+		Id* get(Token w);
 		// Constructor
 		Env(Env n);
 	protected:
-		static Env* prev;
+		Env* prev;
 	private:
 		//creation of hashtable (map)
-		std::map<std::string,Word> table;
+		std::map<Token,Id> table;
 };
 
 #endif
