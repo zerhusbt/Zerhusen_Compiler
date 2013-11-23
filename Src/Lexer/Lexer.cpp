@@ -160,6 +160,8 @@ Token* Lexer::scan()
 	return t;
 }
 
+int Lexer::line = 1;
+
 Lexer::Lexer() 
 {
 	// initialize line counter and peek variables

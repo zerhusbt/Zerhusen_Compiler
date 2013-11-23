@@ -30,7 +30,7 @@ class Lexer {
 		//creation of hashtable (map)
 		std::map<std::string,Word> words;
 	public:
-		int line;
+		static int line;
 		void reserve(Word t);
 		Token* scan();
 		void readch();
