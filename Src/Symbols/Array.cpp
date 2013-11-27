@@ -10,7 +10,7 @@
 
 #include "Array.h"
 
-Array::Array(int sz, Type* p) : Type("[]",Tag::INDEX,(sz*(p->width)))
+Array::Array(int sz, Type* p) : Type(Tag::INDEX,"[]",(sz*(p->width)))
 {
 	size = sz;
 	of = p;

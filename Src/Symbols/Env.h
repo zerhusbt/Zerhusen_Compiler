@@ -16,18 +16,27 @@
 #include "../Lexer/Token.h"
 #include "../Inter/Id.h"
 
+class compare
+{
+	public:
+		bool operator() (const Token* x,const Token* y)
+		{
+			return x<y;
+		}
+};
+
 class Env
 {
 	public:
-		void put(Token w,Id i);
-		Id* get(Token w);
+		void put(Token* w,Id* i);
+		Id* get(Token* w);
 		// Constructor
-		Env(Env n);
+		Env(Env* n);
 	protected:
 		Env* prev;
 	private:
 		//creation of hashtable (map)
-		std::map<Token,Id> table;
+		std::map<Token*,Id*, compare> table;
 };
 
 #endif

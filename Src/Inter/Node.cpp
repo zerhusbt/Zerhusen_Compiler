@@ -1,7 +1,7 @@
 //*****************************************************************************************
 //
 //	Filename: Node.cpp
-//	Description: File for Class Lexer
+//	Description: File for ???
 //	Author: Benjamin Zerhusen
 //	Date Created: 11/22/2013
 //	Last Modified: 11/22/2013
@@ -15,12 +15,11 @@ int Node::labels = 0;
 Node::Node()
 {
 	lexline = Lexer::line;
-	
 }
 
 void Node::error(std::string s)
 {
-	?????
+	std::cout<<"near line "<<lexline<<": "<<s<<std::endl;
 }
 
 int Node::newlabel()
@@ -30,10 +29,10 @@ int Node::newlabel()
 
 void Node::emitlabel(int i)
 {
-	std::cout<<'L'<<i<<':'<<endl;
+	std::cout<<'L'<<i<<':'<<std::endl;
 }
 
 void Node::emit(std::string s)
 {
-	std::cout<<'\t'<<s<<endl;
+	std::cout<<'\t'<<s<<std::endl;
 }

@@ -11,6 +11,9 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <iostream>
+#include "../Lexer/Lexer.h"
+
 class Node
 {
 	public:
@@ -22,7 +25,6 @@ class Node
 		int newlabel();
 		void emitlabel(int i);
 		void emit(std::string s);
-}
-
+};
 
 #endif

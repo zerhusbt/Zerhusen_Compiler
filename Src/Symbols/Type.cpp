@@ -44,7 +44,7 @@ Type* Type::max(Type* p1, Type* p2)
 	}
 	else
 	{
-		return Type::Char
+		return Type::Char;
 	}
 }
 

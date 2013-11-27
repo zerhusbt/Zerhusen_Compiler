@@ -18,5 +18,7 @@
 #include "../Symbols/Type.h"
 #include "../Symbols/Array.h"
 #include "../Inter/Id.h"
+#include "../Inter/Node.h"
+#include "../Inter/Expr.h"
 
 using namespace std;

@@ -19,7 +19,7 @@ class Id : public Expr
 {
 	public:
 		int offset;	// relative address
-		Id(Word id, Type p, int b);
-}
+		Id(Word* id, Type* p, int b);
+};
 
 #endif

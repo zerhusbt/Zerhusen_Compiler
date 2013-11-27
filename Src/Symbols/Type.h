@@ -16,16 +16,16 @@
 class Type : public Word
 {
 	public:
-		int width = 0;	// width is used for storage allocation
+		int width;	// width is used for storage allocation
 		// constructor
-		Type(std::string s, int tag, int w);
-		static bool numeric(Type p);
-		static Type max(Type p1, Type p2);
+		Type(int tag, std::string s, int w);
+		static bool numeric(Type* p);
+		static Type* max(Type* p1, Type* p2);
 		//objects for the basic types
 		static Type* Int;
 		static Type* Float;
 		static Type* Char;
 		static Type* Bool;
-}
+};
 
 #endif

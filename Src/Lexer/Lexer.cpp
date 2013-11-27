@@ -10,6 +10,8 @@
 
 #include "Lexer.h"
 
+int Lexer::line = 1;
+
 void Lexer::reserve(Word t)
 {
 	words.insert(std::pair<std::string,Word>(t.lexeme, t));
@@ -147,7 +149,6 @@ Token* Lexer::scan()
 		if(it != words.end())
 		{
 			Word* w = &it->second;
-			//std::cout<<"Found an entry in the hash table"<<std::endl;
 			return w;
 		}
 		Word* newWord = new Word(Tag::ID,b);
@@ -159,8 +160,6 @@ Token* Lexer::scan()
 	peek = ' ';
 	return t;
 }
-
-int Lexer::line = 1;
 
 Lexer::Lexer() 
 {

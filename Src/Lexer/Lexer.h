@@ -22,8 +22,6 @@
 #include "Real.h"
 #include "Word.h"
 
-#include <iostream>
-
 class Lexer {
 	private:
 		char peek;

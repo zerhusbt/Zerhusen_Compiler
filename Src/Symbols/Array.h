@@ -18,10 +18,10 @@ class Array : public Type
 {
 	public:
 		Type* of;	// array *of* type
-		int size = 1;	// number of elements
+		int size;	// number of elements
 		// constructor
-		Array(int sz, Type p);
+		Array(int sz, Type* p);
 		std::string toString();
-}
+};
 
 #endif
