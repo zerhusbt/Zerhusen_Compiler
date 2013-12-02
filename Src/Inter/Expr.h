@@ -11,6 +11,10 @@
 #ifndef EXPR_H
 #define EXPR_H
 
+#include "Node.h"
+#include "../Lexer/Token.h"
+#include "../Symbols/Type.h"
+
 class Expr : public Node
 {
 	public:

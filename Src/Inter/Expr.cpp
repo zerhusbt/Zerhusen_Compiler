@@ -28,12 +28,49 @@ Expr* Expr::reduce()
 
 void Expr::jumping(int t, int f)
 {
-	
+	emitjumps(toString(),t,f);
 }
 
 void Expr::emitjumps(std::string test, int t, int f)
 {
-	
+	if (t != 0 && f != 0)
+	{
+		std::string returnString;
+		returnString = "";
+		returnString += "if ";
+		returnString += test;
+		returnString += " goto L";
+		returnString += t;
+		emit(returnString);
+		returnString = "";
+		returnString += "goto L";
+		returnString += f;
+		emit(returnString);
+	}
+	else if (t != 0)
+	{
+		std::string returnString;
+		returnString = "";
+		returnString += "if ";
+		returnString += test;
+		returnString += " goto L";
+		returnString += t;
+		emit(returnString);
+	}
+	else if (f != 0)
+	{
+		std::string returnString;
+		returnString = "";
+		returnString += "iffalse ";
+		returnString += test;
+		returnString += " goto L";
+		returnString += f;
+		emit(returnString);
+	}
+	else
+	{
+		// do nothing since both t and f fall through
+	}
 }
 
 std::string Expr::toString()

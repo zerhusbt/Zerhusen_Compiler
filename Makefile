@@ -14,7 +14,7 @@ all : ${TARGET}
 
 # Link and build object files from Lexer, ...
 ${TARGET} : ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o
-	${CC} ${CFLAGS} ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Symbols/TopInter.o -o ${TARGET}
+	${CC} ${CFLAGS} ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o -o ${TARGET}
 
 # Link all object files for Lexer
 ObjFiles/Lexer/TopLexer.o : ObjFiles/Lexer/main.o ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o
