@@ -20,5 +20,6 @@
 #include "../Inter/Id.h"
 #include "../Inter/Node.h"
 #include "../Inter/Expr.h"
+#include "../Inter/Op.h"
 
 using namespace std;
