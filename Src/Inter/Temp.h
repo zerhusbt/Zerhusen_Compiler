@@ -1,24 +1,25 @@
 //*****************************************************************************************
 //
-//	Filename: Op.h
+//	Filename: Temp.h
 //	Description: Header file for ???
 //	Author: Benjamin Zerhusen
-//	Date Created: 04/02/2014
-//	Last Modified: 04/02/2014
+//	Date Created: 04/03/2014
+//	Last Modified: 04/03/2014
 //
 //*****************************************************************************************
 
-#ifndef OP_H
-#define OP_H
+#ifndef TEMP_H
+#define TEMP_H
 
 #include "../Symbols/Type.h"
-#include "../Inter/Expr.h"
 
-class Op : public Expr
+class Temp : public Expr(Word->temp, p)
 {
 	public:
-		Op(Token* tok, Type* p); //constructor
-		Expr* reduce();
+		static int count;
+		int number = 0;
+		Temp(Type* p);	// constructor
+		std::string toString();
 };
 
 #endif

@@ -15,4 +15,16 @@ Op::Op(Token* tok, Type* p) : Expr(tok,p)
 	// do nothing else
 }
 
-// add other stuff here
+Expr* Op::reduce()
+{
+	Expr* x = gen();
+	Temp* t = new Temp(type);
+
+	std::string returnString;
+	returnString = t->toString();
+	returnString += " = ";
+	returnString += x->toString();
+	emit(returnString);
+
+	return t;
+}
