@@ -1,6 +1,6 @@
 //*****************************************************************************************
 //
-//	Filename: Logical.h
+//	Filename: Or.h
 //	Description: Header file for ???
 //	Author: Benjamin Zerhusen
 //	Date Created: 04/03/2014
@@ -8,22 +8,18 @@
 //
 //*****************************************************************************************
 
-#ifndef LOGICAL_H
-#define LOGICAL_H
+#ifndef OR_H
+#define OR_H
 
 #include "Expr.h"
-#include "Temp.h"
+#include "Logical.h"
 #include "../Symbols/Type.h"
 
-class Logical : public Expr
+class Or : public Logical
 {
 	public:
-		Expr* expr1;
-		Expr* expr2;
-		Logical(Token* tok, Expr* x1, Expr* x2); //constructor
-		Type* check(Type* p1, Type* p2);
-		Expr* gen();
-		std::string toString();
+		Or(Token* tok, Expr* x1, Expr* x2); //constructor
+		void jumping(int t, int f);
 };
 
 #endif
