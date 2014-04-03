@@ -1,6 +1,6 @@
 //*****************************************************************************************
 //
-//	Filename: Temp.cpp
+//	Filename: Unary.cpp
 //	Description: File for ???
 //	Author: Benjamin Zerhusen
 //	Date Created: 04/03/2014
@@ -8,19 +8,4 @@
 //
 //*****************************************************************************************
 
-#include "Temp.h"
-
-int Temp::count = 0;
-
-Temp::Temp(Type* p) : Expr(Word::temp, p)
-{
-	number = ++count;
-}
-
-std::string Temp::toString()
-{
-	std::string returnString;
-	returnString = "t";
-	returnString += number;
-	return returnString;
-}
+#include "Unary.h"

@@ -21,6 +21,7 @@
 #include "Num.h"
 #include "Real.h"
 #include "Word.h"
+#include "../Symbols/Type.h"
 
 class Lexer {
 	private:

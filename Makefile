@@ -25,8 +25,8 @@ ObjFiles/Symbols/TopSymbol.o : ObjFiles/Symbols/Env.o ObjFiles/Symbols/Type.o Ob
 	ld ${LDFLAGS} -r ObjFiles/Symbols/Env.o ObjFiles/Symbols/Type.o ObjFiles/Symbols/Array.o -o ObjFiles/Symbols/TopSymbol.o
 
 # Link all object files for Inter
-ObjFiles/Inter/TopInter.o : ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Op.o
-	ld ${LDFLAGS} -r ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Op.o -o ObjFiles/Inter/TopInter.o
+ObjFiles/Inter/TopInter.o : ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o
+	ld ${LDFLAGS} -r ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o -o ObjFiles/Inter/TopInter.o
 
 # Create individual object files for Lexer components
 ObjFiles/Lexer/main.o : Src/Lexer/main.cpp Src/Lexer/main.h
@@ -72,6 +72,16 @@ ObjFiles/Inter/Id.o : Src/Inter/Id.cpp Src/Inter/Id.h
 
 ObjFiles/Inter/Op.o : Src/Inter/Op.cpp Src/Inter/Op.h
 	${CC} ${CFLAGS} -c Src/Inter/Op.cpp -o ObjFiles/Inter/Op.o
+
+ObjFiles/Inter/Arith.o : Src/Inter/Arith.cpp Src/Inter/Arith.h
+	${CC} ${CFLAGS} -c Src/Inter/Arith.cpp -o ObjFiles/Inter/Arith.o
+
+ObjFiles/Inter/Temp.o : Src/Inter/Temp.cpp Src/Inter/Temp.h
+	${CC} ${CFLAGS} -c Src/Inter/Temp.cpp -o ObjFiles/Inter/Temp.o
+
+ObjFiles/Inter/Unary.o : Src/Inter/Unary.cpp Src/Inter/Unary.h
+	${CC} ${CFLAGS} -c Src/Inter/Unary.cpp -o ObjFiles/Inter/Unary.o
+
 
 # Cleanup all object files and the executable
 clean :

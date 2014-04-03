@@ -34,6 +34,7 @@ class Word : public Token
 		static Word* minus;
 		static Word* True;
 		static Word* False;
+		static Word* temp;
 };
 
 #endif

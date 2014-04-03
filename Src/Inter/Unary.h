@@ -1,6 +1,6 @@
 //*****************************************************************************************
 //
-//	Filename: Temp.h
+//	Filename: Unary.h
 //	Description: Header file for ???
 //	Author: Benjamin Zerhusen
 //	Date Created: 04/03/2014
@@ -8,20 +8,19 @@
 //
 //*****************************************************************************************
 
-#ifndef TEMP_H
-#define TEMP_H
+#ifndef UNARY_H
+#define UNARY_H
 
 #include "Expr.h"
+#include "Op.h"
+#include "Temp.h"
 #include "../Symbols/Type.h"
-#include "../Lexer/Word.h"
 
-class Temp : public Expr
+class Unary : public Op
 {
 	public:
-		static int count;
-		int number;
-		Temp(Type* p);	// constructor
-		std::string toString();
+		//Unary(Token* tok, Expr* x); //constructor
+		
 };
 
 #endif

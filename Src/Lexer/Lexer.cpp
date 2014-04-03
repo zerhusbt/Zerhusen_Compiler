@@ -177,7 +177,8 @@ Lexer::Lexer()
 	reserve(*forWord);
 	reserve(*Word::True);
 	reserve(*Word::False);
-	//reserve(*Type::Int);
-	//reserve(*Type::Bool);
-	//reserve(*Type::Float);
+	reserve(*Type::Int);
+	reserve(*Type::Char);
+	reserve(*Type::Bool);
+	reserve(*Type::Float);
 }

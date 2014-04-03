@@ -33,3 +33,4 @@ Word* Word::gte = new Word(Tag::GTE,">=");
 Word* Word::minus = new Word(Tag::MINUS,"minus");
 Word* Word::True = new Word(Tag::TRUE,"true");
 Word* Word::False = new Word(Tag::FALSE,"false");
+Word* Word::temp = new Word(Tag::TEMP,"t");

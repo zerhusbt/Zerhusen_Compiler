@@ -57,8 +57,9 @@ class Tag
 		static const int RETURN = 296;
 		static const int SEMICOLON = 297;
 		static const int STRING = 298;
-		static const int THEN = 299;
-		static const int TRUE = 300;
+		static const int TEMP = 299;
+		static const int THEN = 300;
+		static const int TRUE = 301;
 		
 };
 

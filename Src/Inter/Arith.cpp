@@ -10,11 +10,11 @@
 
 #include "Arith.h"
 
-Arith::Arith(Token* tok, Expr* x1, Expr* x2)
+Arith::Arith(Token* tok, Expr* x1, Expr* x2) : Op(tok, NULL)
 {
 	expr1 = x1;
 	expr2 = x2;
-	type = Type->max(expr1.type, expr2.type);
+	type = Type::max(expr1->type, expr2->type);
 	if(type == NULL)
 	{
 		error("type error");
@@ -35,5 +35,5 @@ std::string Arith::toString()
 	returnString += op->toString();
 	returnString += " ";
 	returnString += expr2->toString();
-	emit(returnString);
+	return returnString;
 }

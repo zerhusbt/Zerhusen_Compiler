@@ -11,14 +11,16 @@
 #ifndef ARITH_H
 #define ARITH_H
 
+#include "Expr.h"
+#include "Op.h"
 #include "../Lexer/Word.h"
 #include "../Symbols/Type.h"
-#include "../Inter/Expr.h"
 
-class Arith : public Op(tok, NULL)
+class Arith : public Op
 {
 	public:
-		Expr* expr1, expr2;
+		Expr* expr1;
+		Expr* expr2;
 		Arith(Token* tok, Expr* x1, Expr* x2); //constructor
 		Expr* gen();
 		std::string toString();

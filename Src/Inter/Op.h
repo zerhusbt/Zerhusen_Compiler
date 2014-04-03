@@ -13,6 +13,7 @@
 
 #include "../Symbols/Type.h"
 #include "../Inter/Expr.h"
+#include "../Inter/Temp.h"
 
 class Op : public Expr
 {
