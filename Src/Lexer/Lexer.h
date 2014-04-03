@@ -4,7 +4,7 @@
 //	Description: Header file for Class Lexer
 //	Author: Benjamin Zerhusen
 //	Date Created: 8/23/2013
-//	Last Modified: 11/11/2013
+//	Last Modified: 04/03/2014
 //
 //*****************************************************************************************
 

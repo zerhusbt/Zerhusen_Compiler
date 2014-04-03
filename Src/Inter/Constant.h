@@ -1,6 +1,6 @@
 //*****************************************************************************************
 //
-//	Filename: Unary.h
+//	Filename: Constant.h
 //	Description: Header file for ???
 //	Author: Benjamin Zerhusen
 //	Date Created: 04/03/2014
@@ -8,21 +8,21 @@
 //
 //*****************************************************************************************
 
-#ifndef UNARY_H
-#define UNARY_H
+#ifndef CONSTANT_H
+#define CONSTANT_H
 
-#include "Expr.h"
-#include "Op.h"
-#include "Temp.h"
 #include "../Symbols/Type.h"
+#include "../Inter/Expr.h"
+#include "../Inter/Temp.h"
 
-class Unary : public Op
+class Constant : public Expr
 {
 	public:
-		Expr* expr;
-		Unary(Token* tok, Expr* x); //constructor
-		Expr* gen();
-		std::string toString();
+		Constant(Token* tok, Type* p); //constructor
+		Constant(int i); //constructor
+		void jumping(int t, int f);
+		static Constant* True;
+		static Constant* False;
 };
 
 #endif
