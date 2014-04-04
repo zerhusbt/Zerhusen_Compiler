@@ -13,6 +13,9 @@
 
 #include "Expr.h"
 #include "Logical.h"
+#include "../Symbols/Type.h"
+#include "../Symbols/Array.h"
+#include <typeinfo>
 
 class Rel : public Logical
 {
