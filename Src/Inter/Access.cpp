@@ -10,24 +10,29 @@
 
 #include "Access.h"
 
-Access::Access(Id* a, Expr* i, Type* p) : Op(new Word("[]", Tag::INDEX), p)
+Access::Access(Id* a, Expr* i, Type* p) : Op(new Word(Tag::INDEX, "[]"), p)
 {
 	// p is element type after flattening the array
 	array = a;
 	index = i;
 }
 
-Access::gen()
+Expr* Access::gen()
 {
 	return new Access(array, index->reduce(), type);
 }
 
-Access::jumping(int t, int f)
+void Access::jumping(int t, int f)
 {
-	emitjumps(//this is where I left off
+	emitjumps(reduce()->toString(), t, f);
 }
 
-Access::toString()
+std::string Access::toString()
 {
-	
+	std::string returnString;
+	returnString = array->toString();
+	returnString += " [ ";
+	returnString += index->toString();
+	returnString += " ]";
+	return returnString;
 }
