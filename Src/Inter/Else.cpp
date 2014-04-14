@@ -29,10 +29,10 @@ void Else::gen(int b, int a)
 	emitlabel(label1);
 	stmt1->gen(label1, a);
 	
-	std::string returnString;
-	returnString += "goto L";
-	returnString += a;
-	emit(returnString);
+	std::string emitString;
+	emitString += "goto L";
+	emitString += a;
+	emit(emitString);
 
 	emitlabel(label2);
 	stmt2->gen(label2, a);
