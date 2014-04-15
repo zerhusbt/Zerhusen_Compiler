@@ -25,8 +25,8 @@ ObjFiles/Symbols/TopSymbol.o : ObjFiles/Symbols/Env.o ObjFiles/Symbols/Type.o Ob
 	ld ${LDFLAGS} -r ObjFiles/Symbols/Env.o ObjFiles/Symbols/Type.o ObjFiles/Symbols/Array.o -o ObjFiles/Symbols/TopSymbol.o
 
 # Link all object files for Inter
-ObjFiles/Inter/TopInter.o : ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o ObjFiles/Inter/Constant.o ObjFiles/Inter/Logical.o ObjFiles/Inter/Or.o ObjFiles/Inter/And.o ObjFiles/Inter/Not.o ObjFiles/Inter/Rel.o ObjFiles/Inter/Access.o ObjFiles/Inter/Stmt.o ObjFiles/Inter/If.o ObjFiles/Inter/Else.o ObjFiles/Inter/While.o ObjFiles/Inter/Do.o
-	ld ${LDFLAGS} -r ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o ObjFiles/Inter/Constant.o ObjFiles/Inter/Logical.o ObjFiles/Inter/Or.o ObjFiles/Inter/And.o ObjFiles/Inter/Not.o ObjFiles/Inter/Rel.o ObjFiles/Inter/Access.o ObjFiles/Inter/Stmt.o ObjFiles/Inter/If.o ObjFiles/Inter/Else.o ObjFiles/Inter/While.o ObjFiles/Inter/Do.o -o ObjFiles/Inter/TopInter.o
+ObjFiles/Inter/TopInter.o : ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o ObjFiles/Inter/Constant.o ObjFiles/Inter/Logical.o ObjFiles/Inter/Or.o ObjFiles/Inter/And.o ObjFiles/Inter/Not.o ObjFiles/Inter/Rel.o ObjFiles/Inter/Access.o ObjFiles/Inter/Stmt.o ObjFiles/Inter/If.o ObjFiles/Inter/Else.o ObjFiles/Inter/While.o ObjFiles/Inter/Do.o ObjFiles/Inter/Set.o ObjFiles/Inter/SetElem.o ObjFiles/Inter/Seq.o ObjFiles/Inter/Break.o
+	ld ${LDFLAGS} -r ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o ObjFiles/Inter/Constant.o ObjFiles/Inter/Logical.o ObjFiles/Inter/Or.o ObjFiles/Inter/And.o ObjFiles/Inter/Not.o ObjFiles/Inter/Rel.o ObjFiles/Inter/Access.o ObjFiles/Inter/Stmt.o ObjFiles/Inter/If.o ObjFiles/Inter/Else.o ObjFiles/Inter/While.o ObjFiles/Inter/Do.o ObjFiles/Inter/Set.o ObjFiles/Inter/SetElem.o ObjFiles/Inter/Seq.o ObjFiles/Inter/Break.o -o ObjFiles/Inter/TopInter.o
 
 # Create individual object files for Lexer components
 ObjFiles/Lexer/main.o : Src/Lexer/main.cpp Src/Lexer/main.h
@@ -117,6 +117,18 @@ ObjFiles/Inter/While.o : Src/Inter/While.cpp Src/Inter/While.h
 
 ObjFiles/Inter/Do.o : Src/Inter/Do.cpp Src/Inter/Do.h
 	${CC} ${CFLAGS} -c Src/Inter/Do.cpp -o ObjFiles/Inter/Do.o
+
+ObjFiles/Inter/Set.o : Src/Inter/Set.cpp Src/Inter/Set.h
+	${CC} ${CFLAGS} -c Src/Inter/Set.cpp -o ObjFiles/Inter/Set.o
+
+ObjFiles/Inter/SetElem.o : Src/Inter/SetElem.cpp Src/Inter/SetElem.h
+	${CC} ${CFLAGS} -c Src/Inter/SetElem.cpp -o ObjFiles/Inter/SetElem.o
+
+ObjFiles/Inter/Seq.o : Src/Inter/Seq.cpp Src/Inter/Seq.h
+	${CC} ${CFLAGS} -c Src/Inter/Seq.cpp -o ObjFiles/Inter/Seq.o
+
+ObjFiles/Inter/Break.o : Src/Inter/Break.cpp Src/Inter/Break.h
+	${CC} ${CFLAGS} -c Src/Inter/Break.cpp -o ObjFiles/Inter/Break.o
 
 # Cleanup all object files and the executable
 clean :
