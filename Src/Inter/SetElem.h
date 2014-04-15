@@ -11,14 +11,23 @@
 #ifndef SETELEM_H
 #define SETELEM_H
 
+#include "Access.h"
 #include "Expr.h"
+#include "Id.h"
 #include "Stmt.h"
+#include "../Symbols/Array.h"
 #include "../Symbols/Type.h"
+#include <typeinfo>
 
 class SetElem : public Stmt
 {
 	public:
-		
+		Id* array;
+		Expr* index;
+		Expr* expr;
+		SetElem(Access* x, Expr* y); // constructor
+		Type* check(Type* p1, Type* p2);
+		void gen(int b, int a);
 };
 
 #endif
