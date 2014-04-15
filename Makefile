@@ -13,12 +13,16 @@ TARGET = Compiler
 all : ${TARGET}
 
 # Link and build object files from Lexer, Symbols, Inter & Parser
-${TARGET} : ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o ObjFiles/Parser/TopParser.o
-	${CC} ${CFLAGS} ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o ObjFiles/Parser/TopParser.o -o ${TARGET}
+${TARGET} : ObjFiles/Main/TopMain.o ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o ObjFiles/Parser/TopParser.o
+	${CC} ${CFLAGS} ObjFiles/Main/TopMain.o ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o ObjFiles/Parser/TopParser.o -o ${TARGET}
+
+# Link all object files for Main
+ObjFiles/Main/TopMain.o : ObjFiles/Main/Main.o
+	ld ${LDFLAGS} -r ObjFiles/Main/Main.o -o ObjFiles/Main/TopMain.o
 
 # Link all object files for Lexer
-ObjFiles/Lexer/TopLexer.o : ObjFiles/Lexer/main.o ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o
-	ld ${LDFLAGS} -r ObjFiles/Lexer/main.o ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o -o ObjFiles/Lexer/TopLexer.o
+ObjFiles/Lexer/TopLexer.o : ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o
+	ld ${LDFLAGS} -r ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o -o ObjFiles/Lexer/TopLexer.o
 
 # Link all object files for Symbols
 ObjFiles/Symbols/TopSymbol.o : ObjFiles/Symbols/Env.o ObjFiles/Symbols/Type.o ObjFiles/Symbols/Array.o
@@ -32,10 +36,11 @@ ObjFiles/Inter/TopInter.o : ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles
 ObjFiles/Parser/TopParser.o : ObjFiles/Parser/Parser.o
 	ld ${LDFLAGS} -r ObjFiles/Parser/Parser.o -o ObjFiles/Parser/TopParser.o
 
-# Create individual object files for Lexer components
-ObjFiles/Lexer/main.o : Src/Lexer/main.cpp Src/Lexer/main.h
-	${CC} ${CFLAGS} -c Src/Lexer/main.cpp -o ObjFiles/Lexer/main.o
+# Create individual object files for Main components
+ObjFiles/Main/Main.o : Src/Main/Main.cpp Src/Main/Main.h
+	${CC} ${CFLAGS} -c Src/Main/Main.cpp -o ObjFiles/Main/Main.o
 
+# Create individual object files for Lexer components
 ObjFiles/Lexer/Tag.o : Src/Lexer/Tag.cpp Src/Lexer/Tag.h
 	${CC} ${CFLAGS} -c Src/Lexer/Tag.cpp -o ObjFiles/Lexer/Tag.o
 
@@ -140,4 +145,4 @@ ObjFiles/Parser/Parser.o : Src/Parser/Parser.cpp Src/Parser/Parser.h
 
 # Cleanup all object files and the executable
 clean :
-	rm -rf ObjFiles/Lexer/*o ObjFiles/Symbols/*o ObjFiles/Inter/*o ObjFiles/Parser/*o ${TARGET} 
+	rm -rf ObjFiles/Main/*o ObjFiles/Lexer/*o ObjFiles/Symbols/*o ObjFiles/Inter/*o ObjFiles/Parser/*o ${TARGET} 
