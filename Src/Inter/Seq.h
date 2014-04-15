@@ -16,7 +16,10 @@
 class Seq : public Stmt
 {
 	public:
-		
+		Stmt* stmt1;
+		Stmt* stmt2;
+		Seq(Stmt* s1, Stmt* s2);	// constructor
+		void gen(int b, int a);
 };
 
 #endif
