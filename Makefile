@@ -12,9 +12,9 @@ TARGET = Compiler
 
 all : ${TARGET}
 
-# Link and build object files from Lexer, ...
-${TARGET} : ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o
-	${CC} ${CFLAGS} ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o -o ${TARGET}
+# Link and build object files from Lexer, Symbols, Inter & Parser
+${TARGET} : ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o ObjFiles/Parser/TopParser.o
+	${CC} ${CFLAGS} ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o ObjFiles/Parser/TopParser.o -o ${TARGET}
 
 # Link all object files for Lexer
 ObjFiles/Lexer/TopLexer.o : ObjFiles/Lexer/main.o ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o
@@ -27,6 +27,10 @@ ObjFiles/Symbols/TopSymbol.o : ObjFiles/Symbols/Env.o ObjFiles/Symbols/Type.o Ob
 # Link all object files for Inter
 ObjFiles/Inter/TopInter.o : ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o ObjFiles/Inter/Constant.o ObjFiles/Inter/Logical.o ObjFiles/Inter/Or.o ObjFiles/Inter/And.o ObjFiles/Inter/Not.o ObjFiles/Inter/Rel.o ObjFiles/Inter/Access.o ObjFiles/Inter/Stmt.o ObjFiles/Inter/If.o ObjFiles/Inter/Else.o ObjFiles/Inter/While.o ObjFiles/Inter/Do.o ObjFiles/Inter/Set.o ObjFiles/Inter/SetElem.o ObjFiles/Inter/Seq.o ObjFiles/Inter/Break.o
 	ld ${LDFLAGS} -r ObjFiles/Inter/Node.o ObjFiles/Inter/Expr.o ObjFiles/Inter/Id.o ObjFiles/Inter/Temp.o ObjFiles/Inter/Op.o ObjFiles/Inter/Arith.o ObjFiles/Inter/Unary.o ObjFiles/Inter/Constant.o ObjFiles/Inter/Logical.o ObjFiles/Inter/Or.o ObjFiles/Inter/And.o ObjFiles/Inter/Not.o ObjFiles/Inter/Rel.o ObjFiles/Inter/Access.o ObjFiles/Inter/Stmt.o ObjFiles/Inter/If.o ObjFiles/Inter/Else.o ObjFiles/Inter/While.o ObjFiles/Inter/Do.o ObjFiles/Inter/Set.o ObjFiles/Inter/SetElem.o ObjFiles/Inter/Seq.o ObjFiles/Inter/Break.o -o ObjFiles/Inter/TopInter.o
+
+# Link all object files for Parser
+ObjFiles/Parser/TopParser.o : ObjFiles/Parser/Parser.o
+	ld ${LDFLAGS} -r ObjFiles/Parser/Parser.o -o ObjFiles/Parser/TopParser.o
 
 # Create individual object files for Lexer components
 ObjFiles/Lexer/main.o : Src/Lexer/main.cpp Src/Lexer/main.h
@@ -130,6 +134,10 @@ ObjFiles/Inter/Seq.o : Src/Inter/Seq.cpp Src/Inter/Seq.h
 ObjFiles/Inter/Break.o : Src/Inter/Break.cpp Src/Inter/Break.h
 	${CC} ${CFLAGS} -c Src/Inter/Break.cpp -o ObjFiles/Inter/Break.o
 
+# Create individual object files for Parser components
+ObjFiles/Parser/Parser.o : Src/Parser/Parser.cpp Src/Parser/Parser.h
+	${CC} ${CFLAGS} -c Src/Parser/Parser.cpp -o ObjFiles/Parser/Parser.o
+
 # Cleanup all object files and the executable
 clean :
-	rm -rf ObjFiles/Lexer/*o ObjFiles/Symbols/*o ObjFiles/Inter/*o ${TARGET} 
+	rm -rf ObjFiles/Lexer/*o ObjFiles/Symbols/*o ObjFiles/Inter/*o ObjFiles/Parser/*o ${TARGET} 
