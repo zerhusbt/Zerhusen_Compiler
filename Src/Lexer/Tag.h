@@ -19,12 +19,14 @@ class Tag
 		static const int BASIC = 258;
 		static const int BEGIN = 259;
 		static const int BOOL = 260;
+		static const int BREAK = 304;
 		static const int CASE = 261;
 		static const int CLOSEBRACE = 262;
 		static const int CLOSEPAREN = 263;
 		static const int COLON = 264;
 		static const int COMMA = 265;
 		static const int DIVIDE = 266;
+		static const int DO = 303;
 		static const int ELSE = 267;
 		static const int END = 268;
 		static const int ENDOFFILE = 269;
@@ -54,12 +56,14 @@ class Tag
 		static const int PLUS = 293;
 		static const int PROCEDURE = 294;
 		static const int PROGRAM = 295;
+		static const int REAL = 305;
 		static const int RETURN = 296;
 		static const int SEMICOLON = 297;
 		static const int STRING = 298;
 		static const int TEMP = 299;
 		static const int THEN = 300;
 		static const int TRUE = 301;
+		static const int WHILE = 302;
 		
 };
 

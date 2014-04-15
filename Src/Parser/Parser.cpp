@@ -125,10 +125,15 @@ Stmt* Parser::stmts()
 Stmt* Parser::stmt()
 {
 	Expr* x;
-	Stmt* s;
 	Stmt* s1;
 	Stmt* s2;
 	Stmt* savedStmt;	// save enclosing loop for breaks
+
+	Else* returnElse;
+	While* whilenode;
+	Do* donode;
+	Break* returnBreak;
+
 	switch(look->tag)
 	{
 		case ';':
@@ -147,10 +152,10 @@ Stmt* Parser::stmt()
 			}
 			match(Tag::ELSE);
 			s2 = stmt();
-			Else* returnElse = new Else(x, s1, s2);
+			returnElse = new Else(x, s1, s2);
 			return returnElse;
 		case Tag::WHILE:
-			While* whilenode = new While();
+			whilenode = new While();
 			savedStmt = Stmt::Enclosing;
 			Stmt::Enclosing = whilenode;
 			match(Tag::WHILE);
@@ -162,7 +167,7 @@ Stmt* Parser::stmt()
 			Stmt::Enclosing = savedStmt;	// reset Stmt::Enclosing
 			return whilenode;
 		case Tag::DO:
-			Do* donode = new Do();
+			donode = new Do();
 			savedStmt = Stmt::Enclosing;
 			Stmt::Enclosing = donode;
 			match(Tag::DO);
@@ -178,7 +183,7 @@ Stmt* Parser::stmt()
 		case Tag::BREAK:
 			match(Tag::BREAK);
 			match(';');
-			Break* returnBreak = new Break();
+			returnBreak = new Break();
 			return returnBreak;
 		case '{':
 			return block();
@@ -242,7 +247,7 @@ Expr* Parser::join()
 Expr* Parser::equality()
 {
 	Expr* x = rel();
-	while(look->tag == Tag::EQ || look->tag == Tag::NE)
+	while(look->tag == Tag::EQUAL || look->tag == Tag::NOTEQUAL)
 	{
 		Token* tok = look;
 		move();
@@ -254,15 +259,18 @@ Expr* Parser::equality()
 Expr* Parser::rel()
 {
 	Expr* x = expr();
+
+	Rel* returnRel;
+	Token* tok;
 	switch(look->tag)
 	{
 		case '<':
-		case Tag::LE:
-		case Tag::GE:
+		case Tag::LTE:
+		case Tag::GTE:
 		case '>':
-			Token* tok = look;
+			tok = look;
 			move();
-			Rel* returnRel = new Rel(tok, x, expr());
+			returnRel = new Rel(tok, x, expr());
 			return returnRel;
 		default:
 			return x;
