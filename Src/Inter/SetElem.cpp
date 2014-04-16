@@ -23,7 +23,7 @@ SetElem::SetElem(Access* x, Expr* y)
 
 Type* SetElem::check(Type* p1, Type* p2)
 {
-	if((typeid(*p1)==typeid(Array)) || (typeid(*p2)==typeid(Array))) // need to verify correct
+	if((p1->typeId()=="Array") || (p2->typeId()=="Array")) // need to verify correct
 	{
 		return NULL;
 	}

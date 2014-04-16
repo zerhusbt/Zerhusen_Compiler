@@ -26,7 +26,8 @@ class Word : public Token
 		virtual std::string tokenType();
 		
 		// lexemes for certain reserved words and composite tokens
-		static Word* assign;		
+		static Word* And;
+		static Word* Or;		
 		static Word* equal;
 		static Word* notequal;
 		static Word* lte;

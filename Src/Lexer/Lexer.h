@@ -4,7 +4,7 @@
 //	Description: Header file for Class Lexer
 //	Author: Benjamin Zerhusen
 //	Date Created: 8/23/2013
-//	Last Modified: 04/03/2014
+//	Last Modified: 04/16/2014
 //
 //*****************************************************************************************
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <map>
 #include <stdio.h>
+#include <iostream>
 #include "Tag.h"
 #include "Token.h"
 #include "Num.h"
@@ -26,6 +27,7 @@
 class Lexer {
 	private:
 		char peek;
+		FILE* fileToLex;
 		//creation of hashtable (map)
 		std::map<std::string,Word> words;
 	public:
@@ -34,8 +36,8 @@ class Lexer {
 		Token* scan();
 		void readch();
 		bool readch(char c);
-		// Constructor
-		Lexer();
+		Lexer();	// Constructor with no parameters
+		Lexer(FILE* pFile); // Constructor with file pointer to be lexed
 };
 
 #endif

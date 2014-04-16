@@ -48,6 +48,11 @@ Type* Type::max(Type* p1, Type* p2)
 	}
 }
 
+std::string Type::tokenType()
+{
+	return "Type";
+}
+
 Type* Type::Int = new Type(Tag::BASIC, "int", 4);
 Type* Type::Float = new Type(Tag::BASIC, "float", 8);
 Type* Type::Char = new Type(Tag::BASIC, "char", 1);

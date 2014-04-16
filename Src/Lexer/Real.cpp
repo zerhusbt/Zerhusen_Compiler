@@ -10,7 +10,7 @@
 
 #include "Real.h"
 
-Real::Real(float v) : Token(Tag::FLOAT)
+Real::Real(float v) : Token(Tag::REAL)
 {
 	value = v;
 }

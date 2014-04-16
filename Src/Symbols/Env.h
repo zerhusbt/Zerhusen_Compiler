@@ -13,15 +13,23 @@
 #define ENV_H
 
 #include <map>
+#include <iostream>
 #include "../Lexer/Token.h"
 #include "../Inter/Id.h"
 
 class compare
 {
 	public:
-		bool operator() (const Token* x,const Token* y)
+		bool operator() (Token* x,Token* y)
 		{
-			return x<y;
+			if((x->tokenType() == y->tokenType()) && (x->tokenType() == "Token"))
+			{
+				return (x->tag) < (y->tag);
+			}
+			else
+			{
+				return false;	// this is failing I believe
+			}
 		}
 };
 

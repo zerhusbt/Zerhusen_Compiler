@@ -197,12 +197,12 @@ Stmt* Parser::assign()
 	Stmt* stmt;
 	Token* t = look;
 	match(Tag::ID);
-	Id* id = top->get(t);
+	Id* id = top->get(t);	// Something is failing HERE!!!!!!!!!
 	if(id == NULL)
 	{
 		std::string errorString;
 		errorString += t->toString();
-		errorString += " undeclared";
+		errorString += " undeclared potato";
 		error(errorString);
 	}
 	if(look->tag == '=')	// S -> id = E
@@ -358,7 +358,7 @@ Expr* Parser::factor()
 			{
 				std::string errorString;
 				errorString += look->toString();
-				errorString += " undeclared";
+				errorString += " undeclared monkey";
 				error(errorString);
 			}
 			move();

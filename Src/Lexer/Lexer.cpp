@@ -4,7 +4,7 @@
 //	Description: File for Class Lexer
 //	Author: Benjamin Zerhusen
 //	Date Created: 8/23/2013
-//	Last Modified: 04/03/2014
+//	Last Modified: 04/16/2014
 //
 //*****************************************************************************************
 
@@ -19,7 +19,7 @@ void Lexer::reserve(Word t)
 
 void Lexer::readch()
 {
-	peek = getc(stdin);
+	peek = getc(fileToLex);
 }
 
 bool Lexer::readch(char c)
@@ -54,14 +54,24 @@ Token* Lexer::scan()
 	// recognize composite tokens
 	switch(peek)
 	{
-		case ':':
-			if(readch('='))
+		case '&':
+			if(readch('&'))
 			{
-				return Word::assign;
+				return Word::And;
 			}
 			else
 			{
-				Token* t = new Token(':');
+				Token* t = new Token('&');
+				return t;
+			}
+		case '|':
+			if(readch('|'))
+			{
+				return Word::Or;
+			}
+			else
+			{
+				Token* t = new Token('|');
 				return t;
 			}
 		case '=':
@@ -149,6 +159,7 @@ Token* Lexer::scan()
 		if(it != words.end())
 		{
 			Word* w = &it->second;
+			std::cout<<"found a reserved word:"<<std::endl; // (used for debug)
 			return w;
 		}
 		Word* newWord = new Word(Tag::ID,b);
@@ -161,7 +172,7 @@ Token* Lexer::scan()
 	return t;
 }
 
-Lexer::Lexer() 
+Lexer::Lexer() // Constructor with no parameters
 {
 	// initialize line counter and peek variables
 	line = 1;
@@ -169,12 +180,40 @@ Lexer::Lexer()
 	// reserved words
 	Word* ifWord = new Word(Tag::IF, "if");
 	reserve(*ifWord);
-	Word* thenWord = new Word(Tag::THEN, "then");
-	reserve(*thenWord);
 	Word* elseWord = new Word(Tag::ELSE, "else");
 	reserve(*elseWord);
-	Word* forWord = new Word(Tag::FOR, "for");
-	reserve(*forWord);
+	Word* whileWord = new Word(Tag::WHILE, "while");
+	reserve(*whileWord);
+	Word* doWord = new Word(Tag::DO, "do");
+	reserve(*doWord);
+	Word* breakWord = new Word(Tag::BREAK, "break");
+	reserve(*breakWord);
+	reserve(*Word::True);
+	reserve(*Word::False);
+	reserve(*Type::Int);
+	reserve(*Type::Char);
+	reserve(*Type::Bool);
+	reserve(*Type::Float);
+}
+
+Lexer::Lexer(FILE* pFile) // Constructor with file pointer to be lexed
+{
+	// initialize line counter and peek variables
+	line = 1;
+	peek = ' ';
+	// save file pointer
+	fileToLex = pFile;
+	// reserved words
+	Word* ifWord = new Word(Tag::IF, "if");
+	reserve(*ifWord);
+	Word* elseWord = new Word(Tag::ELSE, "else");
+	reserve(*elseWord);
+	Word* whileWord = new Word(Tag::WHILE, "while");
+	reserve(*whileWord);
+	Word* doWord = new Word(Tag::DO, "do");
+	reserve(*doWord);
+	Word* breakWord = new Word(Tag::BREAK, "break");
+	reserve(*breakWord);
 	reserve(*Word::True);
 	reserve(*Word::False);
 	reserve(*Type::Int);

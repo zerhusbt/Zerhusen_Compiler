@@ -25,7 +25,8 @@ std::string Word::tokenType()
 	return "Word";
 }
 
-Word* Word::assign = new Word(Tag::ASSIGN,":=");
+Word* Word::And = new Word(Tag::AND,"&&");
+Word* Word::Or = new Word(Tag::OR,"||");
 Word* Word::equal = new Word(Tag::EQUAL,"==");
 Word* Word::notequal = new Word(Tag::NOTEQUAL,"!=");
 Word* Word::lte = new Word(Tag::LTE,"<=");
