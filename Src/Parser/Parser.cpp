@@ -202,7 +202,7 @@ Stmt* Parser::assign()
 	{
 		std::string errorString;
 		errorString += t->toString();
-		errorString += " undeclared potato";
+		errorString += " undeclared";
 		error(errorString);
 	}
 	if(look->tag == '=')	// S -> id = E
@@ -358,7 +358,7 @@ Expr* Parser::factor()
 			{
 				std::string errorString;
 				errorString += look->toString();
-				errorString += " undeclared monkey";
+				errorString += " undeclared";
 				error(errorString);
 			}
 			move();

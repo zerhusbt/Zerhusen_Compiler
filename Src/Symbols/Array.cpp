@@ -16,7 +16,7 @@ Array::Array(int sz, Type* p) : Type(Tag::INDEX,"[]",(sz*(p->width)))
 	of = p;
 }
 
-std::string Array::tokenType()
+std::string Array::tokenType() const
 {
 	return "Array";
 }

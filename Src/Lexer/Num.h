@@ -23,8 +23,8 @@ class Num : public Token
 		// Constructor
 		Num(int v);
 		// return value
-		virtual std::string toString();
-		virtual std::string tokenType();
+		virtual std::string toString() const;
+		virtual std::string tokenType() const;
 };
 
 #endif

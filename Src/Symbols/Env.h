@@ -20,15 +20,17 @@
 class compare
 {
 	public:
-		bool operator() (Token* x,Token* y)
+		bool operator() (const Token x,const Token y)
 		{
-			if((x->tokenType() == y->tokenType()) && (x->tokenType() == "Token"))
+			std::cout<<"We are comparing a "<<x.tokenType()<<" with a "<<y.tokenType()<<std::endl;
+			std::cout<<"The value of x is "<<x.toString()<<" and the value of y is "<<y.toString()<<std::endl;
+			if(x.tokenType().compare(y.tokenType()) == 0)
 			{
-				return (x->tag) < (y->tag);
+				return x.toString().compare(y.toString()) < 0;
 			}
 			else
 			{
-				return false;	// this is failing I believe
+				return true;
 			}
 		}
 };
@@ -44,7 +46,7 @@ class Env
 		Env* prev;
 	private:
 		//creation of hashtable (map)
-		std::map<Token*,Id*, compare> table;
+		std::map<Token,Id, compare> table;
 };
 
 #endif

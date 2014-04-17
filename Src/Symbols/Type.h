@@ -21,7 +21,7 @@ class Type : public Word
 		Type(int tag, std::string s, int w);
 		static bool numeric(Type* p);
 		static Type* max(Type* p1, Type* p2);
-		virtual std::string tokenType();
+		virtual std::string tokenType() const;
 		//objects for the basic types
 		static Type* Int;
 		static Type* Float;

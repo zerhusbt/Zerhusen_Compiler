@@ -15,14 +15,14 @@ Token::Token(int t)
 	tag = t;
 }
 
-std::string Token::toString() 
+std::string Token::toString() const
 {
 	std::stringstream ss;
 	ss << tag;
 	return ss.str();
 }
 
-std::string Token::tokenType()
+std::string Token::tokenType() const
 {
 	return "Token";
 }

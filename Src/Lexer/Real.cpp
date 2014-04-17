@@ -15,14 +15,14 @@ Real::Real(float v) : Token(Tag::REAL)
 	value = v;
 }
 
-std::string Real::toString() 
+std::string Real::toString() const 
 {
 	std::stringstream ss;
 	ss << value;
 	return ss.str();
 }
 
-std::string Real::tokenType()
+std::string Real::tokenType() const
 {
 	return "Real";
 }

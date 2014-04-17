@@ -23,8 +23,8 @@ class Real : public Token
 		// Constructor
 		Real(float v);
 		// return value
-		virtual std::string toString();
-		virtual std::string tokenType();
+		virtual std::string toString() const;
+		virtual std::string tokenType() const;
 };
 
 #endif

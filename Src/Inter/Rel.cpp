@@ -17,7 +17,7 @@ Rel::Rel(Token* tok, Expr* x1, Expr* x2) : Logical(tok, x1, x2)
 
 Type* Rel::check(Type* p1, Type* p2)
 {
-	if((p1->typeId()=="Array") || (p2->typeId()=="Array")) //need to verify correct
+	if((p1->tokenType()=="Array") || (p2->tokenType()=="Array")) //need to verify correct
 	{
 		return NULL;
 	}
