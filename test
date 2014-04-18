@@ -1,0 +1,8 @@
+{
+	bool xfd;
+	int i;
+	{
+		i = i + 5;
+		xfd = 5;
+	}
+}
