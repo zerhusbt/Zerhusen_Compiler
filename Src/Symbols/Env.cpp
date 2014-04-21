@@ -14,7 +14,7 @@
 void Env::put(Token* w, Id* i)
 {
 std::cout<<"inserting a symbol matched to "<<w->toString()<<" with type: "<<i->type->lexeme<<std::endl;
-	table.insert(std::pair<Token,Id>(*w,*i));
+	table.insert(std::pair<Token*,Id*>(w,i));
 }
 
 Id* Env::get(Token* w)
@@ -22,10 +22,10 @@ Id* Env::get(Token* w)
 std::cout<<"Looking for a token of type "<<w->tokenType()<<std::endl;
 	for(Env* e = this;e != NULL;e = e->prev)
 	{
-		std::map<Token,Id,compare>::iterator found = e->table.find(*w);
+		std::map<Token*,Id*,compare>::iterator found = e->table.find(w);
 		if(found != e->table.end())
 		{
-			Id* t = &found->second;
+			Id* t = found->second;
 			std::cout<<"found a symbol matched to "<<w->toString()<<" with type: "<<t->type->lexeme<<std::endl;	// for debugging
 			return t;
 		}

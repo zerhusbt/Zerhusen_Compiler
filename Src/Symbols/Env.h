@@ -20,7 +20,7 @@
 class compare
 {
 	public:
-		bool operator() (const Token x,const Token y)
+		bool operator() (Token* x,Token* y)
 		{
 			std::cout<<"We are comparing a "<<x.tokenType()<<" with a "<<y.tokenType()<<std::endl;
 			std::cout<<"The value of x is "<<x.toString()<<" and the value of y is "<<y.toString()<<std::endl;
@@ -46,7 +46,7 @@ class Env
 		Env* prev;
 	private:
 		//creation of hashtable (map)
-		std::map<Token,Id, compare> table;
+		std::map<Token*,Id*, compare> table;
 };
 
 #endif
