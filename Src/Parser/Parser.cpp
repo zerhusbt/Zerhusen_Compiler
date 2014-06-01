@@ -197,7 +197,7 @@ Stmt* Parser::assign()
 	Stmt* stmt;
 	Token* t = look;
 	match(Tag::ID);
-	Id* id = top->get(t);	// Something is failing HERE!!!!!!!!!
+	Id* id = top->get(t);
 	if(id == NULL)
 	{
 		std::string errorString;

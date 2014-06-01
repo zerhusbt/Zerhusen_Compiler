@@ -18,7 +18,7 @@ Type::Type(int tag, std::string s, int w) : Word(tag,s)
 
 bool Type::numeric(Type* p)
 {
-	if(p==Type::Char || p==Type::Int || p==Type::Float)
+	if(p == Type::Char || p == Type::Int || p == Type::Float)
 	{
 		return true;
 	}

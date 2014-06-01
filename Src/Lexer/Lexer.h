@@ -29,10 +29,10 @@ class Lexer {
 		char peek;
 		FILE* fileToLex;
 		//creation of hashtable (map)
-		std::map<std::string,Word> words;
+		std::map<std::string,Word*> words;
 	public:
 		static int line;
-		void reserve(Word t);
+		void reserve(Word* t);
 		Token* scan();
 		void readch();
 		bool readch(char c);

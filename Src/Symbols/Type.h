@@ -12,6 +12,7 @@
 #define TYPE_H
 
 #include "../Lexer/Word.h"
+#include <iostream>
 
 class Type : public Word
 {
@@ -20,6 +21,9 @@ class Type : public Word
 		// constructor
 		Type(int tag, std::string s, int w);
 		static bool numeric(Type* p);
+		static bool isChar(Type* p);
+		static bool isInt(Type* p);
+		static bool isFloat(Type* p);
 		static Type* max(Type* p1, Type* p2);
 		virtual std::string tokenType() const;
 		//objects for the basic types

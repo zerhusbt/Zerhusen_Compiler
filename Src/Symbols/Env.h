@@ -20,13 +20,11 @@
 class compare
 {
 	public:
-		bool operator() (Token* x,Token* y)
+		bool operator() (Token *x,Token *y)
 		{
-			std::cout<<"We are comparing a "<<x.tokenType()<<" with a "<<y.tokenType()<<std::endl;
-			std::cout<<"The value of x is "<<x.toString()<<" and the value of y is "<<y.toString()<<std::endl;
-			if(x.tokenType().compare(y.tokenType()) == 0)
+			if(x->tokenType().compare(y->tokenType()) == 0)
 			{
-				return x.toString().compare(y.toString()) < 0;
+				return x->toString().compare(y->toString()) < 0;
 			}
 			else
 			{
