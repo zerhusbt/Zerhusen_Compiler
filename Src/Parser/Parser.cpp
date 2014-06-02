@@ -142,7 +142,9 @@ Stmt* Parser::stmt()
 		case Tag::IF:
 			match(Tag::IF);
 			match('(');
+std::cout<<"In stmt() the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 			x = boolean();
+std::cout<<"In stmt() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 			match(')');
 			s1 = stmt();
 			if(look->tag != Tag::ELSE)
@@ -223,24 +225,28 @@ Stmt* Parser::assign()
 Expr* Parser::boolean()
 {
 	Expr* x = join();
+std::cout<<"In boolean() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	while(look->tag == Tag::OR)
 	{
 		Token* tok = look;
 		move();
 		x = new Or(tok, x, join());
 	}
+std::cout<<"In boolean() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
 Expr* Parser::join()
 {
 	Expr* x = equality();
+std::cout<<"In join() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	while(look->tag == Tag::AND)
 	{
 		Token* tok = look;
 		move();
 		x = new And(tok, x, equality());
 	}
+std::cout<<"In join() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
