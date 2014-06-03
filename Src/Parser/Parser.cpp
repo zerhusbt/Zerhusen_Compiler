@@ -246,25 +246,28 @@ std::cout<<"In join() part 1 the value of x->type is: "<<x->type<<" compared to:
 		move();
 		x = new And(tok, x, equality());
 	}
-std::cout<<"In join() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"In join() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
 Expr* Parser::equality()
 {
 	Expr* x = rel();
+std::cout<<"In equality() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	while(look->tag == Tag::EQUAL || look->tag == Tag::NOTEQUAL)
 	{
 		Token* tok = look;
 		move();
 		x = new Rel(tok, x, rel());
 	}
+std::cout<<"In equality() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
 Expr* Parser::rel()
 {
 	Expr* x = expr();
+std::cout<<"In rel() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 
 	Rel* returnRel;
 	Token* tok;
@@ -276,9 +279,12 @@ Expr* Parser::rel()
 		case '>':
 			tok = look;
 			move();
+std::cout<<"In rel() the value of x->type is: "<<x->type<<std::endl;
 			returnRel = new Rel(tok, x, expr());
+std::cout<<"In rel() part 2*a the value of returnRel->type is: "<<returnRel->type<<" compared to: "<<Type::Bool<<std::endl;
 			return returnRel;
 		default:
+std::cout<<"In rel() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 			return x;
 	}
 }

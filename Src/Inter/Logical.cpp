@@ -15,6 +15,8 @@ Logical::Logical(Token* tok, Expr* x1, Expr* x2) : Expr(tok, NULL)
 	expr1 = x1;
 	expr2 = x2;
 	type = check(expr1->type, expr2->type);
+std::cout<<"The value of expr1->type in Logical() is: "<<expr1->type<<" and expr2->type is: "<<expr2->type<<std::endl;
+std::cout<<"The value of Type::Bool is: "<<Type::Bool<<"."<<Type::Int<<"."<<Type::Char<<"."<<Type::Float<<std::endl;
 	if(type == NULL)
 	{
 		error("type error");
