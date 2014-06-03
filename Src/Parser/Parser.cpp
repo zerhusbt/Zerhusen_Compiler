@@ -338,6 +338,7 @@ Expr* Parser::factor()
 {
 	Expr* x = NULL;
 std::cout<<"Within the Parser::factor() function the value of look->tag is: "<<look->tag<<std::endl;
+std::cout<<"The value of look->toString() at this point is: "<<look->toString()<<std::endl;
 	switch(look->tag)
 	{
 		case '(':
