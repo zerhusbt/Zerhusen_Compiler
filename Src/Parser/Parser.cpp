@@ -337,6 +337,7 @@ Expr* Parser::unary()
 Expr* Parser::factor()
 {
 	Expr* x = NULL;
+std::cout<<"Within the Parser::factor() function the value of look->tag is: "<<look->tag<<std::endl;
 	switch(look->tag)
 	{
 		case '(':
