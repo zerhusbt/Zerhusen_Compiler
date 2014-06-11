@@ -292,12 +292,15 @@ std::cout<<"In rel() part 2*b the value of x->type is: "<<x->type<<" compared to
 Expr* Parser::expr()
 {
 	Expr* x = term();
+std::cout<<"In expr() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	while(look->tag == '+' || look->tag == '-')
 	{
 		Token* tok = look;
 		move();
 		x = new Arith(tok, x, term());
+std::cout<<"In expr() part 2*a the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	}
+std::cout<<"In rel() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
