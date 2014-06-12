@@ -281,7 +281,7 @@ std::cout<<"In rel() part 1 the value of x->type is: "<<x->type<<" compared to: 
 			move();
 std::cout<<"In rel() the value of x->type is: "<<x->type<<std::endl;
 			returnRel = new Rel(tok, x, expr());
-std::cout<<"In rel() part 2*a the value of returnRel->type is: "<<returnRel->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"In rel() part 2*a the value of returnRel->expr1->type is: "<<returnRel->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
 			return returnRel;
 		default:
 std::cout<<"In rel() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
@@ -300,19 +300,22 @@ std::cout<<"In expr() part 1 the value of x->type is: "<<x->type<<" compared to:
 		x = new Arith(tok, x, term());
 std::cout<<"In expr() part 2*a the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	}
-std::cout<<"In rel() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"In expr() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
 Expr* Parser::term()
 {
 	Expr* x = unary();
+std::cout<<"In term() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	while(look->tag == '*' || look->tag == '/')
 	{
 		Token* tok = look;
 		move();
 		x = new Arith(tok, x, unary());
+std::cout<<"In term() part 2*a the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	}
+std::cout<<"In term() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
@@ -333,6 +336,7 @@ Expr* Parser::unary()
 	}
 	else
 	{
+std::cout<<"We have entered into the portion of unary() that was expected"<<std::endl;
 		return factor();
 	}
 }
