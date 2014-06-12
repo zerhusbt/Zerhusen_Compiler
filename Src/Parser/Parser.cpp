@@ -259,8 +259,9 @@ std::cout<<"In equality() part 1 the value of x->type is: "<<x->type<<" compared
 		Token* tok = look;
 		move();
 		x = new Rel(tok, x, rel());
+std::cout<<"In equality() part 2*a the value of x->expr1->type is: "<<x->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
 	}
-std::cout<<"In equality() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"In equality() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
@@ -281,7 +282,7 @@ std::cout<<"In rel() part 1 the value of x->type is: "<<x->type<<" compared to: 
 			move();
 std::cout<<"In rel() the value of x->type is: "<<x->type<<std::endl;
 			returnRel = new Rel(tok, x, expr());
-std::cout<<"In rel() part 2*a the value of returnRel->type is: "<<returnRel->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"In rel() part 2*a the value of returnRel->expr1->type is: "<<returnRel->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
 			return returnRel;
 		default:
 std::cout<<"In rel() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
