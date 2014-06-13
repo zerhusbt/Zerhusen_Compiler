@@ -259,7 +259,7 @@ Expr* Parser::equality()
 		Token* tok = look;
 		move();
 		x = new Rel(tok, x, rel());
-std::cout<<"In equality() part 2*a the value of x->expr1->type is: "<<x->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
+//std::cout<<"In equality() part 2*a the value of x->expr1->type is: "<<x->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
 	}
 //std::cout<<"In equality() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
@@ -345,7 +345,7 @@ Expr* Parser::unary()
 Expr* Parser::factor()
 {
 	Expr* x = NULL;
-std::cout<<"Within the Parser::factor() function the value of look->tag is: "<<look->tag<<std::endl;
+std::cout<<"Within the Parser::factor() function the value of look->tag is: "<<look->tag<<" at line "<<Lexer::line<<std::endl;
 std::cout<<"The value of look->toString() at this point is: "<<look->toString()<<std::endl;
 	switch(look->tag)
 	{
