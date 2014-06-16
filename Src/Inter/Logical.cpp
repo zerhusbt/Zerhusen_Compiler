@@ -23,8 +23,9 @@ std::cout<<"The value of Type::Bool is: "<<Type::Bool<<"."<<Type::Int<<"."<<Type
 	}
 }
 
-Type* Logical::check(Type* p1, Type* p2)
+Type* Logical::check(Type* p1, Type* p2) const
 {
+std::cout<<"This is the implementation of check() that is within Logical"<<std::endl;
 	if(p1 == Type::Bool && p2 == Type::Bool)
 	{
 		return Type::Bool;

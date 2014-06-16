@@ -142,13 +142,14 @@ Stmt* Parser::stmt()
 		case Tag::IF:
 			match(Tag::IF);
 			match('(');
-//std::cout<<"In stmt() the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"Beginning of formation of if condition"<<std::endl;
 			x = boolean();
-//std::cout<<"In stmt() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"End of formation of if condition"<<std::endl;
 			match(')');
 			s1 = stmt();
 			if(look->tag != Tag::ELSE)
 			{
+std::cout<<"We have entered the part where a new If() is formed"<<std::endl;
 				If* returnIf = new If(x, s1);
 				return returnIf;
 			}
@@ -230,9 +231,10 @@ Expr* Parser::boolean()
 	{
 		Token* tok = look;
 		move();
+std::cout<<"In boolean() part 2*a the value of x->type is: "<<x->type<<" at line "<<Lexer::line<<std::endl;
 		x = new Or(tok, x, join());
 	}
-//std::cout<<"In boolean() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+//std::cout<<"In boolean() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
@@ -244,31 +246,33 @@ Expr* Parser::join()
 	{
 		Token* tok = look;
 		move();
+std::cout<<"In join() part 2*a the value of x->type is: "<<x->type<<" at line "<<Lexer::line<<std::endl;
 		x = new And(tok, x, equality());
 	}
-//std::cout<<"In join() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+//std::cout<<"In join() part 2*b the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
 Expr* Parser::equality()
 {
 	Expr* x = rel();
-//std::cout<<"In equality() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+//std::cout<<"In equality() part 1 the value of x->type is: "<<x->type<<" at line "<<Lexer::line<<std::endl;
 	while(look->tag == Tag::EQUAL || look->tag == Tag::NOTEQUAL)
 	{
 		Token* tok = look;
 		move();
+std::cout<<"In equality() part 2*a the value of x->type is: "<<x->type<<" at line "<<Lexer::line<<std::endl;
 		x = new Rel(tok, x, rel());
-//std::cout<<"In equality() part 2*a the value of x->expr1->type is: "<<x->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
+//std::cout<<"In equality() part 2*b the value of x->expr1->type is: "<<x->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
 	}
-//std::cout<<"In equality() part 2 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+//std::cout<<"In equality() part 2*c the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
 	return x;
 }
 
 Expr* Parser::rel()
 {
 	Expr* x = expr();
-//std::cout<<"In rel() part 1 the value of x->type is: "<<x->type<<" compared to: "<<Type::Bool<<std::endl;
+std::cout<<"In rel() part 1 the value of x->type is: "<<x->type<<", where Type::Int is "<<Type::Int<<std::endl;
 
 	Rel* returnRel;
 	Token* tok;
@@ -279,8 +283,11 @@ Expr* Parser::rel()
 		case Tag::GTE:
 		case '>':
 			tok = look;
+std::cout<<"In rel() the first value of look->tag is: "<<look->tag<<std::endl;
 			move();
-//std::cout<<"In rel() the value of x->type is: "<<x->type<<std::endl;
+std::cout<<"In rel() the second value of look->tag is: "<<look->tag<<std::endl;
+std::cout<<"In rel() the value of x->type is: "<<x->type<<" at line "<<Lexer::line<<std::endl;
+// for the if( 4 >= 5 ) at line 6 of the test program, the value of tok is a token for GTE(263 is tag), the value of x is an expr for the int 4,  
 			returnRel = new Rel(tok, x, expr());
 //std::cout<<"In rel() part 2*a the value of returnRel->expr1->type is: "<<returnRel->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
 			return returnRel;
@@ -332,12 +339,13 @@ Expr* Parser::unary()
 	{
 		Token* tok = look;
 		move();
+//std::cout<<"In unary() part 1 the value of tok->tag is: "<<tok->tag<<" at line "<<Lexer::line<<std::endl;
 		Not* returnNot = new Not(tok, unary());
 		return returnNot;
 	}
 	else
 	{
-//std::cout<<"We have entered into the portion of unary() that was expected"<<std::endl;
+std::cout<<"We have entered into the portion of unary() that was expected"<<std::endl;
 		return factor();
 	}
 }

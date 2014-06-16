@@ -21,7 +21,7 @@ class Rel : public Logical
 {
 	public:
 		Rel(Token* tok, Expr* x1, Expr* x2); //constructor
-		Type* check(Type* p1, Type* p2);
+		virtual Type* check(Type* p1, Type* p2) const;
 		void jumping(int t, int f);
 };
 

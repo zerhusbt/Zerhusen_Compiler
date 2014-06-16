@@ -21,7 +21,7 @@ class Logical : public Expr
 		Expr* expr1;
 		Expr* expr2;
 		Logical(Token* tok, Expr* x1, Expr* x2); //constructor
-		Type* check(Type* p1, Type* p2);
+		virtual Type* check(Type* p1, Type* p2) const;
 		Expr* gen();
 		std::string toString();
 };
