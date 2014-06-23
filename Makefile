@@ -6,7 +6,7 @@
 
 # Flags
 CC = g++
-CFLAGS = -Wall -g -m32
+CFLAGS = -Wall -g -m32 -std=c++0x
 LDFLAGS = -m elf_i386
 TARGET = Compiler
 

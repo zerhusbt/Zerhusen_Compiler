@@ -10,7 +10,19 @@
 
 #include "Logical.h"
 
-Logical::Logical(Token* tok, Expr* x1, Expr* x2) : Expr(tok, NULL)
+Logical::Logical(Token* tok, Expr* x1, Expr* x2) : Expr(tok, NULL) {}
+
+Logical* Logical::create(Token* tok, Expr* x1, Expr* x2)
+{
+std::cout<<"Stage 1"<<std::endl;
+	Logical* p = new Logical(tok, x1, x2);
+std::cout<<"Stage 2"<<std::endl;
+	p->init(tok, x1, x2);
+std::cout<<"Stage 3"<<std::endl;
+	return p;
+}
+
+void Logical::init(Token* tok, Expr* x1, Expr* x2)
 {
 	expr1 = x1;
 	expr2 = x2;

@@ -22,6 +22,7 @@
 #include "../Inter/Expr.h"
 #include "../Inter/Id.h"
 #include "../Inter/If.h"
+#include "../Inter/Logical.h"
 #include "../Inter/Not.h"
 #include "../Inter/Or.h"
 #include "../Inter/Rel.h"
