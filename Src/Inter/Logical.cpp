@@ -10,23 +10,11 @@
 
 #include "Logical.h"
 
-Logical::Logical(Token* tok, Expr* x1, Expr* x2) : Expr(tok, NULL) {}
-
-Logical* Logical::create(Token* tok, Expr* x1, Expr* x2)
-{
-std::cout<<"Stage 1"<<std::endl;
-	Logical* p = new Logical(tok, x1, x2);
-std::cout<<"Stage 2"<<std::endl;
-	p->init(tok, x1, x2);
-std::cout<<"Stage 3"<<std::endl;
-	return p;
-}
-
-void Logical::init(Token* tok, Expr* x1, Expr* x2)
+Logical::Logical(Token* tok, Expr* x1, Expr* x2, std::string objectType) : Expr(tok, NULL) 
 {
 	expr1 = x1;
 	expr2 = x2;
-	type = check(expr1->type, expr2->type);
+	type = check(expr1->type, expr2->type, objectType);
 std::cout<<"The value of expr1->type in Logical() is: "<<expr1->type<<" and expr2->type is: "<<expr2->type<<std::endl;
 std::cout<<"The value of Type::Bool is: "<<Type::Bool<<"."<<Type::Int<<"."<<Type::Char<<"."<<Type::Float<<std::endl;
 	if(type == NULL)
@@ -35,17 +23,37 @@ std::cout<<"The value of Type::Bool is: "<<Type::Bool<<"."<<Type::Int<<"."<<Type
 	}
 }
 
-Type* Logical::check(Type* p1, Type* p2) const
+Type* Logical::check(Type* p1, Type* p2, std::string objectType)
 {
-std::cout<<"This is the implementation of check() that is within Logical"<<std::endl;
-	if(p1 == Type::Bool && p2 == Type::Bool)
+	if(objectType == "Rel")
 	{
-		return Type::Bool;
+std::cout<<"This is the implementation of check() that was previously within Rel"<<std::endl;
+		if((p1->tokenType()=="Array") || (p2->tokenType()=="Array")) //need to verify correct
+		{
+			return NULL;
+		}
+		else if(p1 == p2)
+		{
+			return Type::Bool;
+		}
+		else
+		{
+			return NULL;
+		}
 	}
 	else
 	{
-		return NULL;
+std::cout<<"This is the implementation of check() that is within Logical"<<std::endl;
+		if(p1 == Type::Bool && p2 == Type::Bool)
+		{
+			return Type::Bool;
+		}
+		else
+		{
+			return NULL;
+		}
 	}
+	
 }
 
 Expr* Logical::gen()

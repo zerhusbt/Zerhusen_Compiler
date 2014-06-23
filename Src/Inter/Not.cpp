@@ -10,7 +10,7 @@
 
 #include "Not.h"
 
-Not::Not(Token* tok, Expr* x2) : Logical(tok, x2, x2)
+Not::Not(Token* tok, Expr* x2) : Logical(tok, x2, x2, "Not")
 {
 	//do nothing here
 }

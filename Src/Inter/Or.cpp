@@ -10,7 +10,7 @@
 
 #include "Or.h"
 
-Or::Or(Token* tok, Expr* x1, Expr* x2) : Logical(tok, x1, x2)
+Or::Or(Token* tok, Expr* x1, Expr* x2) : Logical(tok, x1, x2, "Or")
 {
 	//do nothing here
 }

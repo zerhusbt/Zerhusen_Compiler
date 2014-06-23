@@ -288,7 +288,7 @@ std::cout<<"In rel() the first value of look->tag is: "<<look->tag<<std::endl;
 std::cout<<"In rel() the second value of look->tag is: "<<look->tag<<std::endl;
 std::cout<<"In rel() the value of x->type is: "<<x->type<<" at line "<<Lexer::line<<std::endl;
 // for the if( 4 >= 5 ) at line 6 of the test program, the value of tok is a token for GTE(263 is tag), the value of x is an expr for the int 4,  
-			returnRel = Logical::create(tok, x, expr());
+			returnRel = new Rel(tok, x, expr());
 //std::cout<<"In rel() part 2*a the value of returnRel->expr1->type is: "<<returnRel->expr1->type<<" compared to: "<<Type::Bool<<std::endl;
 			return returnRel;
 		default:
