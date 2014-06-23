@@ -15,8 +15,6 @@ Logical::Logical(Token* tok, Expr* x1, Expr* x2, std::string objectType) : Expr(
 	expr1 = x1;
 	expr2 = x2;
 	type = check(expr1->type, expr2->type, objectType);
-std::cout<<"The value of expr1->type in Logical() is: "<<expr1->type<<" and expr2->type is: "<<expr2->type<<std::endl;
-std::cout<<"The value of Type::Bool is: "<<Type::Bool<<"."<<Type::Int<<"."<<Type::Char<<"."<<Type::Float<<std::endl;
 	if(type == NULL)
 	{
 		error("type error");
@@ -27,7 +25,6 @@ Type* Logical::check(Type* p1, Type* p2, std::string objectType)
 {
 	if(objectType == "Rel")
 	{
-std::cout<<"This is the implementation of check() that was previously within Rel"<<std::endl;
 		if((p1->tokenType()=="Array") || (p2->tokenType()=="Array")) //need to verify correct
 		{
 			return NULL;
@@ -43,7 +40,6 @@ std::cout<<"This is the implementation of check() that was previously within Rel
 	}
 	else
 	{
-std::cout<<"This is the implementation of check() that is within Logical"<<std::endl;
 		if(p1 == Type::Bool && p2 == Type::Bool)
 		{
 			return Type::Bool;
