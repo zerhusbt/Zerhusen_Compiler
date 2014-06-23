@@ -17,7 +17,6 @@ Rel::Rel(Token* tok, Expr* x1, Expr* x2) : Logical(tok, x1, x2, "Rel")
 
 Type* Rel::check(Type* p1, Type* p2)
 {
-std::cout<<"This is the implementation of check() that is within Rel"<<std::endl;
 	if((p1->tokenType()=="Array") || (p2->tokenType()=="Array")) //need to verify correct
 	{
 		return NULL;
