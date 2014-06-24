@@ -20,12 +20,12 @@ int main (int argc, const char* argv[])
 	}
 	else
 	{
-		Lexer* lex = new Lexer(pFile);
+		/*Lexer* lex = new Lexer(pFile);
 		Parser* parse = new Parser(lex);
 		parse->program();
-		cout<<endl;
+		cout<<endl;*/
 
-		/*Lexer* lex = new Lexer(pFile);
+		Lexer* lex = new Lexer(pFile);
 		Token* pMyToken = lex->scan();
 		cout<<pMyToken->toString()<<endl;
 		cout<<pMyToken->tokenType()<<endl;
@@ -154,7 +154,7 @@ int main (int argc, const char* argv[])
 		cout<<pMyToken->tokenType()<<endl;
 		pMyToken = lex->scan();
 		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;*/
+		cout<<pMyToken->tokenType()<<endl;
 
 		fclose(pFile);
 	}

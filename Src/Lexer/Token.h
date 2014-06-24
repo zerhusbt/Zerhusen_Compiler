@@ -23,6 +23,7 @@ class Token
 		// return value
 		virtual std::string toString() const;
 		virtual std::string tokenType() const;
+		//virtual ~Token() {}
 };
 
 #endif

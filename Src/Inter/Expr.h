@@ -22,11 +22,11 @@ class Expr : public Node
 		Type* type;
 		// constructor
 		Expr(Token* tok, Type* p);
-		Expr* gen();
-		Expr* reduce();
-		void jumping(int t, int f);
-		void emitjumps(std::string test, int t, int f);
-		std::string toString();
+		virtual Expr* gen();
+		virtual Expr* reduce();
+		virtual void jumping(int t, int f);
+		virtual void emitjumps(std::string test, int t, int f);
+		virtual std::string toString();
 };
 
 #endif

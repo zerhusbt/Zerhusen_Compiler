@@ -19,7 +19,7 @@ class Stmt : public Node
 	public:
 		Stmt(); //constructor
 		static Stmt* Null;
-		void gen(int b, int a); //called with labels begin and after
+		virtual void gen(int b, int a); //called with labels begin and after
 		int after; // saves label after
 		static Stmt* Enclosing; //used for break stmts
 };
