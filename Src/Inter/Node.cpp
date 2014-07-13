@@ -29,7 +29,7 @@ int Node::newlabel()
 
 void Node::emitlabel(int i)
 {
-	std::cout<<'L'<<i<<':'<<std::endl;
+	std::cout<<'L'<<i<<':';
 }
 
 void Node::emit(std::string s)
