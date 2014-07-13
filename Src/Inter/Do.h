@@ -22,7 +22,7 @@ class Do : public Stmt
 		Stmt* stmt;
 		Do(); //constructor
 		void init(Stmt* s, Expr* x);
-		void gen(int b, int a);
+		virtual void gen(int b, int a);
 };
 
 #endif

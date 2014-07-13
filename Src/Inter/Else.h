@@ -22,7 +22,7 @@ class Else : public Stmt
 		Stmt* stmt1;
 		Stmt* stmt2;
 		Else(Expr* x, Stmt* s1, Stmt* s2); //constructor
-		void gen(int b, int a);
+		virtual void gen(int b, int a);
 };
 
 #endif

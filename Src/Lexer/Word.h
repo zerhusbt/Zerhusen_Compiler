@@ -22,8 +22,8 @@ class Word : public Token
 		// Constructor
 		Word(int t, std::string s);
 		// return value
-		virtual std::string toString() const;
-		virtual std::string tokenType() const;
+		virtual std::string toString();
+		virtual std::string tokenType();
 		
 		// lexemes for certain reserved words and composite tokens
 		static Word* And;

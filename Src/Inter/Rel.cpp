@@ -15,6 +15,8 @@ Rel::Rel(Token* tok, Expr* x1, Expr* x2) : Logical(tok, x1, x2, "Rel")
 	//do nothing here
 }
 
+// This check function has been moved to the Logical file due to a problem with using virtual 
+// functions and the order in which object constructors are called
 //Type* Rel::check(Type* p1, Type* p2)
 //{
 //	if((p1->tokenType()=="Array") || (p2->tokenType()=="Array")) //need to verify correct

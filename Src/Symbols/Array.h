@@ -21,7 +21,7 @@ class Array : public Type
 		int size;	// number of elements
 		// constructor
 		Array(int sz, Type* p);
-		virtual std::string tokenType() const;
+		virtual std::string tokenType();
 		std::string toString();
 };
 

@@ -21,7 +21,7 @@ class If : public Stmt
 		Expr* expr;
 		Stmt* stmt;
 		If(Expr* x, Stmt* s); //constructor
-		void gen(int b, int a);
+		virtual void gen(int b, int a);
 };
 
 #endif

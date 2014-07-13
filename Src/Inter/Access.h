@@ -23,9 +23,9 @@ class Access : public Op
 		Id* array;
 		Expr* index;
 		Access(Id* a, Expr* i, Type* p); //constructor
-		Expr* gen();
-		void jumping(int t, int f);
-		std::string toString();
+		virtual Expr* gen();
+		virtual void jumping(int t, int f);
+		virtual std::string toString();
 };
 
 #endif

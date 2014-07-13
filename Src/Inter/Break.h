@@ -18,7 +18,7 @@ class Break : public Stmt
 	public:
 		Stmt* stmt;
 		Break();	// constructor
-		void gen(int b, int a);
+		virtual void gen(int b, int a);
 };
 
 #endif

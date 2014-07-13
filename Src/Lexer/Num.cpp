@@ -15,14 +15,14 @@ Num::Num(int v) : Token(Tag::NUM)
 	value = v;
 }
 
-std::string Num::toString() const
+std::string Num::toString()
 {
 	std::stringstream ss;
 	ss << value;
 	return ss.str();
 }
 
-std::string Num::tokenType() const
+std::string Num::tokenType()
 {
 	return "Num";
 }

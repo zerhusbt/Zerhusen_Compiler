@@ -15,12 +15,12 @@ Word::Word(int t, std::string s) : Token(t)
 	lexeme = s;
 }
 
-std::string Word::toString() const 
+std::string Word::toString()
 {
 	return lexeme;
 }
 
-std::string Word::tokenType() const
+std::string Word::tokenType()
 {
 	return "Word";
 }

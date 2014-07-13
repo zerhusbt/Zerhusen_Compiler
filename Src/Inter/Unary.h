@@ -21,8 +21,8 @@ class Unary : public Op
 	public:
 		Expr* expr;
 		Unary(Token* tok, Expr* x); //constructor
-		Expr* gen();
-		std::string toString();
+		virtual Expr* gen();
+		virtual std::string toString();
 };
 
 #endif

@@ -25,7 +25,7 @@ class Expr : public Node
 		virtual Expr* gen();
 		virtual Expr* reduce();
 		virtual void jumping(int t, int f);
-		virtual void emitjumps(std::string test, int t, int f);
+		void emitjumps(std::string test, int t, int f);
 		virtual std::string toString();
 };
 

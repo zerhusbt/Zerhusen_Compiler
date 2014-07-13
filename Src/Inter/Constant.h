@@ -20,7 +20,7 @@ class Constant : public Expr
 	public:
 		Constant(Token* tok, Type* p); //constructor
 		Constant(int i); //constructor
-		void jumping(int t, int f);
+		virtual void jumping(int t, int f);
 		static Constant* True;
 		static Constant* False;
 };

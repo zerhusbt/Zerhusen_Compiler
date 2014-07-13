@@ -48,7 +48,7 @@ Type* Type::max(Type* p1, Type* p2)
 	}
 }
 
-std::string Type::tokenType() const
+std::string Type::tokenType()
 {
 	return "Type";
 }

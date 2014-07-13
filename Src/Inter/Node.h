@@ -23,9 +23,9 @@ class Node
 		void error(std::string s);
 		static int labels;
 		int newlabel();
-		virtual void emitlabel(int i);
-		virtual void emit(std::string s);
-		//virtual ~Node() {}
+		void emitlabel(int i);
+		void emit(std::string s);
+
 };
 
 #endif

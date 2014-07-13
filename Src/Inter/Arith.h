@@ -22,8 +22,8 @@ class Arith : public Op
 		Expr* expr1;
 		Expr* expr2;
 		Arith(Token* tok, Expr* x1, Expr* x2); //constructor
-		Expr* gen();
-		std::string toString();
+		virtual Expr* gen();
+		virtual std::string toString();
 };
 
 #endif

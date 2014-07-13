@@ -19,7 +19,7 @@ class Op : public Expr
 {
 	public:
 		Op(Token* tok, Type* p); //constructor
-		Expr* reduce();
+		virtual Expr* reduce();
 };
 
 #endif

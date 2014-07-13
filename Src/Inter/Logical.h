@@ -23,8 +23,8 @@ class Logical : public Expr
 		Expr* expr2;
 		Logical(Token* tok, Expr* x1, Expr* x2, std::string objectType); //constructor
 		Type* check(Type* p1, Type* p2, std::string objectType);
-		Expr* gen();
-		std::string toString();
+		virtual Expr* gen();
+		virtual std::string toString();
 };
 
 #endif

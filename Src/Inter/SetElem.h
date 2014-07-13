@@ -27,7 +27,7 @@ class SetElem : public Stmt
 		Expr* expr;
 		SetElem(Access* x, Expr* y); // constructor
 		Type* check(Type* p1, Type* p2);
-		void gen(int b, int a);
+		virtual void gen(int b, int a);
 };
 
 #endif

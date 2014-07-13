@@ -23,7 +23,7 @@ class Set : public Stmt
 		Expr* expr;
 		Set(Id* i, Expr* x);	// constructor
 		Type* check(Type* p1, Type* p2);
-		void gen(int b, int a);
+		virtual void gen(int b, int a);
 };
 
 #endif

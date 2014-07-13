@@ -19,7 +19,7 @@ class Or : public Logical
 {
 	public:
 		Or(Token* tok, Expr* x1, Expr* x2); //constructor
-		void jumping(int t, int f);
+		virtual void jumping(int t, int f);
 };
 
 #endif

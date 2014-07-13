@@ -21,7 +21,7 @@ class Temp : public Expr
 		static int count;
 		int number;
 		Temp(Type* p);	// constructor
-		std::string toString();
+		virtual std::string toString();
 };
 
 #endif

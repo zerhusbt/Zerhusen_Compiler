@@ -25,7 +25,7 @@ class Type : public Word
 		static bool isInt(Type* p);
 		static bool isFloat(Type* p);
 		static Type* max(Type* p1, Type* p2);
-		virtual std::string tokenType() const;
+		virtual std::string tokenType();
 		//objects for the basic types
 		static Type* Int;
 		static Type* Float;

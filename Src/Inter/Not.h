@@ -18,8 +18,8 @@ class Not : public Logical
 {
 	public:
 		Not(Token* tok, Expr* x2); //constructor
-		void jumping(int t, int f);
-		std::string toString();
+		virtual void jumping(int t, int f);
+		virtual std::string toString();
 };
 
 #endif
