@@ -43,6 +43,5 @@ void Rel::jumping(int t, int f)
 	test += op->toString();
 	test += " ";
 	test += b->toString();
-	test += " ";
 	emitjumps(test, t, f);
 }
