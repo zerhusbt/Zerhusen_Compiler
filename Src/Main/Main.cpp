@@ -12,20 +12,20 @@
 
 int main (int argc, const char* argv[])
 {
-	FILE* pFile;
-	pFile = fopen("test","r");
-	if(pFile == NULL)
+	FILE* pInputFile;
+	pInputFile = fopen("test","r");
+	if(pInputFile == NULL)
 	{
 		perror("Error opening file");
 	}
 	else
 	{
-		Lexer* lex = new Lexer(pFile);
+		Lexer* lex = new Lexer(pInputFile);
 		Parser* parse = new Parser(lex);
 		parse->program();
 		cout<<endl;
 
-		/*Lexer* lex = new Lexer(pFile);
+		/*Lexer* lex = new Lexer(pInputFile);
 		Token* pMyToken = lex->scan();
 		cout<<pMyToken->toString()<<endl;
 		cout<<pMyToken->tokenType()<<endl;
@@ -156,7 +156,7 @@ int main (int argc, const char* argv[])
 		cout<<pMyToken->toString()<<endl;
 		cout<<pMyToken->tokenType()<<endl;*/
 
-		fclose(pFile);
+		fclose(pInputFile);
 	}
 
 
