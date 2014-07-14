@@ -17,9 +17,9 @@ Token::Token(int t)
 
 std::string Token::toString()
 {
-	std::stringstream ss;
-	ss << tag;
-	return ss.str();
+	std::string returnString;
+	returnString = tag;
+	return returnString;
 }
 
 std::string Token::tokenType()

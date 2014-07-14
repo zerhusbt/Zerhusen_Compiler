@@ -36,6 +36,6 @@ void While::gen(int b, int a)
 	
 	std::string emitString;
 	emitString += "goto L";
-	emitString += b;
+	emitString += std::to_string(b);
 	emit(emitString);
 }

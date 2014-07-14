@@ -25,7 +25,7 @@ std::string Array::toString()
 {
 	std::string returnString = "";
 	returnString += "[";
-	returnString += size;
+	returnString += std::to_string(size);
 	returnString += "]";
 	returnString += of->toString();	// the toString() method should be inherited from Word
 	return returnString;

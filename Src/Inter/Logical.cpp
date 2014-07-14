@@ -66,7 +66,7 @@ Expr* Logical::gen()
 
 	returnString = "";
 	returnString += "goto L";
-	returnString += a;
+	returnString += std::to_string(a);
 	emit(returnString);
 
 	emitlabel(f);

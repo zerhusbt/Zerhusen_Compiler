@@ -26,14 +26,14 @@ void Constant::jumping(int t, int f)
 	{
 		std::string returnString;
 		returnString += " goto L";
-		returnString += t;
+		returnString += std::to_string(t);
 		emit(returnString);
 	}
 	else if(this == False && f != 0)
 	{
 		std::string returnString;
 		returnString += " goto L";
-		returnString += f;
+		returnString += std::to_string(f);
 		emit(returnString);
 	}
 }

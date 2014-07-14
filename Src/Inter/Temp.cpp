@@ -21,6 +21,6 @@ std::string Temp::toString()
 {
 	std::string returnString;
 	returnString = "t";
-	returnString += number;
+	returnString += std::to_string(number);
 	return returnString;
 }

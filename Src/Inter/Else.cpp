@@ -31,7 +31,7 @@ void Else::gen(int b, int a)
 	
 	std::string emitString;
 	emitString += "goto L";
-	emitString += a;
+	emitString += std::to_string(a);
 	emit(emitString);
 
 	emitlabel(label2);

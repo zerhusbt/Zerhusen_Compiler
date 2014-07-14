@@ -39,12 +39,12 @@ void Expr::emitjumps(std::string test, int t, int f)
 		returnString = "";
 		returnString += "if ";
 		returnString += test;
-		returnString += " goto Lbilly";
-		returnString += t;
+		returnString += " goto L";
+		returnString += std::to_string(t);
 		emit(returnString);
 		returnString = "";
-		returnString += "goto Lbobby";
-		returnString += f;
+		returnString += "goto L";
+		returnString += std::to_string(f);
 		emit(returnString);
 	}
 	else if (t != 0)
@@ -53,8 +53,8 @@ void Expr::emitjumps(std::string test, int t, int f)
 		returnString = "";
 		returnString += "if ";
 		returnString += test;
-		returnString += " goto Ljoey";
-		returnString += t;
+		returnString += " goto L";
+		returnString += std::to_string(t);
 		emit(returnString);
 	}
 	else if (f != 0)
@@ -63,8 +63,8 @@ void Expr::emitjumps(std::string test, int t, int f)
 		returnString = "";
 		returnString += "iffalse ";
 		returnString += test;
-		returnString += " goto Ljohnny";
-		returnString += f;
+		returnString += " goto L";
+		returnString += std::to_string(f);
 		emit(returnString);
 	}
 	else

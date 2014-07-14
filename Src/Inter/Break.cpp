@@ -23,6 +23,6 @@ void Break::gen(int b, int a)
 {
 	std::string emitString;
 	emitString += "goto L";
-	emitString += stmt->after;
+	emitString += std::to_string(stmt->after);
 	emit(emitString);
 }
