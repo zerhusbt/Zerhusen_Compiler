@@ -30,9 +30,14 @@ int Node::newlabel()
 void Node::emitlabel(int i)
 {
 	std::cout<<'L'<<i<<':';
+	//fprintf(Parser::pOutputFile, "L%i:", i);
 }
 
 void Node::emit(std::string s)
 {
 	std::cout<<'\t'<<s<<std::endl;
+	/*std::string outputString = "\t";
+	outputString += s;
+	outputString += "\n";
+	fprintf(Parser::pOutputFile, outputString);*/
 }

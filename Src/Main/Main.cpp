@@ -12,11 +12,17 @@
 
 int main (int argc, const char* argv[])
 {
-	FILE* pInputFile;
+	static FILE* pInputFile;
 	pInputFile = fopen("test","r");
+	static FILE* pOutputFile;
+	pOutputFile = fopen("output","w");
 	if(pInputFile == NULL)
 	{
-		perror("Error opening file");
+		perror("Error opening input file");
+	}
+	else if(pOutputFile == NULL)
+	{
+		perror("Error opening output file");
 	}
 	else
 	{
@@ -157,6 +163,7 @@ int main (int argc, const char* argv[])
 		cout<<pMyToken->tokenType()<<endl;*/
 
 		fclose(pInputFile);
+		fclose(pOutputFile);
 	}
 
 
