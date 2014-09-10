@@ -11,5 +11,6 @@
 #include <iostream>
 #include "../Lexer/Lexer.h"
 #include "../Parser/Parser.h"
+#include "Files.h"
 
 using namespace std;

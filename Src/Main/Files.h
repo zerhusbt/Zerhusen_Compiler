@@ -1,10 +1,10 @@
 //*****************************************************************************************
 //
-//	Filename: FileHandler.h
+//	Filename: Files.h
 //	Description: Header file for ???
 //	Author: Benjamin Zerhusen
-//	Date Created: 11/22/2013
-//	Last Modified: 11/22/2013
+//	Date Created: 9/10/2014
+//	Last Modified: 9/10/2014
 //
 //*****************************************************************************************
 
@@ -12,6 +12,7 @@
 #define FILES_H
 
 #include <iostream>
+#include <string>
 
 class Files
 {
@@ -20,6 +21,10 @@ class Files
 		static FILE* pOutputFile;
 		// constructor
 		Files();
+		FILE* openInputFile(char* inputFileName);
+		FILE* openOutputFile(char* outputFileName);
+		void closeInputFile();
+		void closeOutputFile();
 
 };
 

@@ -17,8 +17,8 @@ ${TARGET} : ObjFiles/Main/TopMain.o ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/T
 	${CC} ${CFLAGS} ObjFiles/Main/TopMain.o ObjFiles/Lexer/TopLexer.o ObjFiles/Symbols/TopSymbol.o ObjFiles/Inter/TopInter.o ObjFiles/Parser/TopParser.o -o ${TARGET}
 
 # Link all object files for Main
-ObjFiles/Main/TopMain.o : ObjFiles/Main/Main.o
-	ld ${LDFLAGS} -r ObjFiles/Main/Main.o -o ObjFiles/Main/TopMain.o
+ObjFiles/Main/TopMain.o : ObjFiles/Main/Main.o ObjFiles/Main/Files.o
+	ld ${LDFLAGS} -r ObjFiles/Main/Main.o ObjFiles/Main/Files.o -o ObjFiles/Main/TopMain.o
 
 # Link all object files for Lexer
 ObjFiles/Lexer/TopLexer.o : ObjFiles/Lexer/Tag.o ObjFiles/Lexer/Token.o ObjFiles/Lexer/Num.o ObjFiles/Lexer/Real.o ObjFiles/Lexer/Word.o ObjFiles/Lexer/Lexer.o
@@ -39,6 +39,9 @@ ObjFiles/Parser/TopParser.o : ObjFiles/Parser/Parser.o
 # Create individual object files for Main components
 ObjFiles/Main/Main.o : Src/Main/Main.cpp Src/Main/Main.h
 	${CC} ${CFLAGS} -c Src/Main/Main.cpp -o ObjFiles/Main/Main.o
+
+ObjFiles/Main/Files.o : Src/Main/Files.cpp Src/Main/Files.h
+	${CC} ${CFLAGS} -c Src/Main/Files.cpp -o ObjFiles/Main/Files.o
 
 # Create individual object files for Lexer components
 ObjFiles/Lexer/Tag.o : Src/Lexer/Tag.cpp Src/Lexer/Tag.h

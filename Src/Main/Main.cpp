@@ -1,6 +1,6 @@
 //*****************************************************************************************
 //
-//	Filename: main.cpp
+//	Filename: Main.cpp
 //	Description: File called to execute compiler
 //	Author: Benjamin Zerhusen
 //	Date Created: 8/20/2013
@@ -10,12 +10,26 @@
 
 #include "Main.h"
 
-int main (int argc, const char* argv[])
+int main (int argc, char* argv[])
 {
-	static FILE* pInputFile;
-	pInputFile = fopen("test","r");
-	static FILE* pOutputFile;
-	pOutputFile = fopen("output","w");
+	char* inputFileName = "test";
+	char* outputFileName = "output";
+
+	if (argc == 2)
+	{
+		inputFileName = argv[1];
+	}
+	if (argc == 3)
+	{
+		inputFileName = argv[1];
+		outputFileName = argv[2];
+	}
+
+	Files* fileHolder = new Files();
+	FILE* pInputFile;
+	pInputFile = fileHolder->openInputFile(inputFileName);
+	FILE* pOutputFile;
+	pOutputFile = fileHolder->openOutputFile(outputFileName);
 	if(pInputFile == NULL)
 	{
 		perror("Error opening input file");
@@ -31,139 +45,8 @@ int main (int argc, const char* argv[])
 		parse->program();
 		cout<<endl;
 
-		/*Lexer* lex = new Lexer(pInputFile);
-		Token* pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;
-		pMyToken = lex->scan();
-		cout<<pMyToken->toString()<<endl;
-		cout<<pMyToken->tokenType()<<endl;*/
-
-		fclose(pInputFile);
-		fclose(pOutputFile);
+		fileHolder->closeInputFile();
+		fileHolder->closeOutputFile();
 	}
 
 
