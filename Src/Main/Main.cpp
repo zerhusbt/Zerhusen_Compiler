@@ -40,6 +40,7 @@ int main (int argc, char* argv[])
 	}
 	else
 	{
+
 		Lexer* lex = new Lexer(pInputFile);
 		Parser* parse = new Parser(lex);
 		parse->program();

@@ -27,6 +27,16 @@ FILE* Files::openOutputFile(char* outputFileName)
 	return pOutputFile;
 }
 
+void Files::writeStringToFile(std::string inputString)
+{
+	fprintf(pOutputFile, "%s", inputString.c_str());
+}
+
+void Files::writeStringToFile(char* inputString)
+{
+	fprintf(pOutputFile, "%s", inputString);
+}
+
 void Files::closeInputFile()
 {
 	fclose(pInputFile);

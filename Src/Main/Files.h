@@ -23,6 +23,8 @@ class Files
 		Files();
 		FILE* openInputFile(char* inputFileName);
 		FILE* openOutputFile(char* outputFileName);
+		void writeStringToFile(std::string inputString);
+		void writeStringToFile(char* inputString);
 		void closeInputFile();
 		void closeOutputFile();
 
