@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include "../Lexer/Lexer.h"
+#include "../Main/Files.h"
 
 class Node
 {
